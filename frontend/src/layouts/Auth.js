@@ -14,7 +14,6 @@ import Register from "views/auth/Register.js";
 export default function Auth() {
   return (
     <>
-      <Navbar transparent />
       <main>
         <section className="relative w-full h-full py-40 min-h-screen">
           <div
@@ -25,11 +24,10 @@ export default function Auth() {
             }}
           ></div>
           <Switch>
-            <Route path="/auth/login" exact component={Login} />
-            <Route path="/auth/register" exact component={Register} />
-            <Redirect from="/auth" to="/auth/login" />
+            <Route path="/login" exact component={Login} />
+            <Route path="/register" component={Register} />
+            <Redirect from="/auth" to="/login" />
           </Switch>
-          <FooterSmall absolute />
         </section>
       </main>
     </>
