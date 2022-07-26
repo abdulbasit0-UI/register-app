@@ -16,21 +16,17 @@ const WorkSchema = mongoose.Schema(
     },
     itemQuantity: {
       type: Number,
-      required: true,
+      default: 1,
     },
     itemDepositAmount: {
       type: Number,
-      required: true,
       default: 0,
     },
     paymentType: {
       type: String,
       required: true,
     },
-    customerName: {
-      type: String,
-      required: true,
-    },
+
     customerID: {
       type: String,
       required: true,

@@ -8,17 +8,16 @@ export const registerWork = expressAsyncHandler(async (req, res) => {
     itemQuantity,
     itemDepositAmount,
     paymentType,
-    customerName,
     customerID,
   } = req.body;
 
+  
   if (
-    !itemName ||
-    !itemDescription ||
-    !itemPrice ||
-    !itemQuantity ||
-    !paymentType ||
-    !customerName ||
+    !itemName &&
+    !itemDescription &&
+    !itemPrice &&
+    !itemQuantity &&
+    !paymentType &&
     !customerID
   ) {
     return res.status(400).json({
@@ -33,7 +32,6 @@ export const registerWork = expressAsyncHandler(async (req, res) => {
     itemQuantity,
     itemDepositAmount,
     paymentType,
-    customerName,
     customerID,
   });
 

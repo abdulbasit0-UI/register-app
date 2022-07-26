@@ -42,12 +42,12 @@ const _nav = [
       {
         component: CNavItem,
         name: "Make Work Order",
-        to: "/add-customers",
+        to: "/make-order",
       },
       {
         component: CNavItem,
         name: "Order History",
-        to: "/view-customers",
+        to: "/view-orders",
       },
     ],
   },
