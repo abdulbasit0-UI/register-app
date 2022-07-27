@@ -1,10 +1,24 @@
 import React, { useState, useEffect, useRef } from "react";
 import { CCard, CCardBody } from "@coreui/react";
 import axios from "axios";
+import { cilUserPlus } from "@coreui/icons";
+import CIcon from "@coreui/icons-react";
+import {
+  CModal,
+  CModalHeader,
+  CModalBody,
+  CModalFooter,
+  CButton,
+} from "@coreui/react";
 
 const CreateOrder = () => {
   const [customers, setCustomers] = useState([]);
+  const [modal, setModal] = useState(false);
   const formRef = useRef();
+
+  const toggle = () => {
+    setModal(!modal);
+  };
 
   const [orders, setOrders] = useState({
     itemName: "",
@@ -73,8 +87,8 @@ const CreateOrder = () => {
       <CCard>
         <CCardBody>
           <form onSubmit={onSubmit} ref={formRef}>
-            <div className="row">
-              <div className="col-md-6">
+            <div className="row align-items-center">
+              <div className="col-md-5">
                 <div className="mb-3">
                   <label className="mb-3" htmlFor="itemName">
                     Product Name
@@ -89,7 +103,7 @@ const CreateOrder = () => {
                   />
                 </div>
               </div>
-              <div className="col-md-6">
+              <div className="col-md-5">
                 <div className="mb-3">
                   <label className="mb-3" htmlFor="customerID">
                     Customer Name
@@ -110,6 +124,11 @@ const CreateOrder = () => {
                     })}
                   </select>
                 </div>
+              </div>
+              <div className="col-md-2 mt-3">
+                <CButton color="primary" onClick={toggle}>
+                  <CIcon icon={cilUserPlus} /> New Customer
+                </CButton>
               </div>
             </div>
             <div className="mb-3">
@@ -199,6 +218,16 @@ const CreateOrder = () => {
           </form>
         </CCardBody>
       </CCard>
+      <CModal show={modal} onClose={toggle}>
+        <CModalHeader closeButton>Modal title</CModalHeader>
+        <CModalBody>Lorem ipsum dolor...</CModalBody>
+        <CModalFooter>
+          <CButton color="primary">Do Something</CButton>{" "}
+          <CButton color="secondary" onClick={toggle}>
+            Cancel
+          </CButton>
+        </CModalFooter>
+      </CModal>
     </>
   );
 };

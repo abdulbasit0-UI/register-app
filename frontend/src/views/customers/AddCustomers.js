@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { CCard, CCardBody, CFormInput, CButton, CAlert } from "@coreui/react";
 import axios from "axios";
 
+
 const AddCustomers = () => {
   const [customers, setCustomers] = useState({
     customerName: "",
